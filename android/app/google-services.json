@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "452777949507",
+    "project_id": "greenmemory-da15b",
+    "storage_bucket": "greenmemory-da15b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:452777949507:android:8ce67ed425f9dc7ea117f6",
+        "android_client_info": {
+          "package_name": "com.ynov2022native"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "452777949507-p9r6cf6g103qj1soah27ma4te69nltmv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpMP6McUCw_9D8OxKHkigpGrs9yAhrFkQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "452777949507-p9r6cf6g103qj1soah27ma4te69nltmv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

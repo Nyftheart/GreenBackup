@@ -1,4 +1,7 @@
 {
   "name": "Ynov2022Native",
-  "displayName": "Ynov2022Native"
+  "displayName": "Ynov2022Native",
+  "react-native-google-mobile-ads": {
+    "android_app_id": "ca-app-pub-5351633937463002~4343750368"
+  }
 }

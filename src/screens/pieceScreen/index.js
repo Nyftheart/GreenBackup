@@ -1,9 +1,18 @@
-import React, { useState } from "react";
+import React, {useState} from 'react';
 
-import { Appearance, Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  Appearance,
+  Image,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import ListePiece from '../../components/ajoutPiece';
 import styled from 'styled-components/native';
 import darkMode from '../../../darkMode';
+import {BannerAd, BannerAdSize, TestIds} from 'react-native-google-mobile-ads';
 
 const PieceScreen = ({navigation}) => {
   const [theme, setTheme] = useState(Appearance.getColorScheme());
@@ -17,6 +26,11 @@ const PieceScreen = ({navigation}) => {
           <Logout source={require('../../../assets/Logout.png')} />
         </LogoutTouch>
       </View>
+      <BannerAd
+        unitId={TestIds.BANNER}
+        size={BannerAdSize.FULL_BANNER}
+        requestOptions={{requestNonPersonalizedAdsOnly: true}}
+      />
       <ListePiece />
     </Page>
   );

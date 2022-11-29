@@ -9,6 +9,7 @@ class App extends React.Component {
     // After having done stuff (such as async tasks) hide the splash screen
     SplashScreen.hide();
   }
+
   render() {
     return (
       // provider englobe l'app,
