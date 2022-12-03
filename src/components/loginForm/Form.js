@@ -2,8 +2,10 @@ import React from 'react';
 import {Text, TextInput, View} from 'react-native';
 import NavigationButton from '../button/Loginbutton';
 import styled from 'styled-components/native';
+import {useTranslation} from 'react-i18next';
 
 const LoginForm = ({setInputs, inputs, submitForm}) => {
+  const {t, i18n} = useTranslation();
   return (
     // {/*    ...inputs: spread operator, permet de recupere tout un tableau*/}
     // {/* etant donne qu'on a plus qu'un seul useState, il faut que tout soit*/}
@@ -22,7 +24,7 @@ const LoginForm = ({setInputs, inputs, submitForm}) => {
         value={inputs.password}
         placeholder="Password"
       />
-      <NavigationButton label="SUBMIT" onPress={submitForm} />
+      <NavigationButton label={t('submit')} onPress={submitForm} />
     </Form>
   );
 };
@@ -48,4 +50,3 @@ const Input = styled.TextInput`
   background-color: white;
   border-radius: 10px;
 `;
-

@@ -12,7 +12,7 @@ const UniPlante = ({navigation, route}) => {
   console.log(navigation);
   console.log(route);
   return (
-    <Page style={theme == 'light' ? styles.page : darkMode.page}>
+    <Page>
       <PlanteUnitaire />
     </Page>
   );
@@ -21,9 +21,5 @@ const UniPlante = ({navigation, route}) => {
 export default UniPlante;
 const Page = styled.SafeAreaView`
   height: 100%;
+  background-color: ${props => props.theme.PRIMARY_BACKGROUND_COLOR};
 `;
-const styles = StyleSheet.create({
-  page: {
-    backgroundColor: '#3c8d68',
-  },
-});

@@ -18,7 +18,7 @@ const PieceScreen = ({navigation}) => {
   const [theme, setTheme] = useState(Appearance.getColorScheme());
   Appearance.addChangeListener(scheme => {});
   return (
-    <Page style={theme == 'light' ? styles.page : darkMode.page}>
+    <Page>
       <View>
         <Header source={require('../../../assets/TopPiece.png')} />
         <Title>Ou est ta plante ?</Title>
@@ -44,6 +44,7 @@ const Header = styled.Image`
 `;
 const Page = styled.SafeAreaView`
   height: 100%;
+  background-color: ${props => props.theme.PRIMARY_BACKGROUND_COLOR};
 `;
 const Logout = styled.Image`
   position: absolute;
@@ -66,8 +67,3 @@ const Title = styled.Text`
   padding-top: 65px;
   padding-left: 25px;
 `;
-const styles = StyleSheet.create({
-  page: {
-    backgroundColor: '#b6e0ce',
-  },
-});

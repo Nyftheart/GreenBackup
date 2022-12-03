@@ -1,23 +1,28 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import Routes from './src/config/routes';
-import {Provider} from 'react-redux';
+import {Provider, useSelector} from 'react-redux';
 import {store} from './src/config/store';
 import SplashScreen from 'react-native-splash-screen';
-class App extends React.Component {
-  componentDidMount() {
-    // do stuff while splash screen is shown
-    // After having done stuff (such as async tasks) hide the splash screen
-    SplashScreen.hide();
-  }
+import styled, {ThemeProvider} from 'styled-components';
+import './src/config/translation.js';
+import themeReducer from './src/reducers/switchTheme';
+import {lightTheme} from './theme';
 
-  render() {
-    return (
-      // provider englobe l'app,
-      <Provider store={store}>
+function App() {
+  SplashScreen.hide();
+
+  return (
+    <Provider store={store}>
+      <SafeArea>
         <Routes />
-      </Provider>
-    );
-  }
+      </SafeArea>
+    </Provider>
+  );
 }
+
+const SafeArea = styled.SafeAreaView`
+  height: 100%;
+  width: 100%;
+`;
 
 export default App;

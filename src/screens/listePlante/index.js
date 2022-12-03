@@ -1,19 +1,28 @@
-import React, { useState } from "react";
+import React, {useState} from 'react';
 
-import { Appearance, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  Appearance,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import AjoutPlante from '../../components/ajoutPlante';
 import styled from 'styled-components/native';
-import darkMode from "../../../darkMode";
 
 const ListePlante = ({navigation, route}) => {
   const [theme, setTheme] = useState(Appearance.getColorScheme());
   Appearance.addChangeListener(scheme => {});
   return (
-    <Page style={theme == 'light' ? styles.page : darkMode.page}>
+    <Page>
       <View>
         <Header source={require('../../../assets/TopPlante.png')} />
         <Title>Trouve ta plante !</Title>
-        <UnderTitle>Le savant connait le nom ds plantes. Le poète les appelle par leur prénom.</UnderTitle>
+        <UnderTitle>
+          Le savant connait le nom ds plantes. Le poète les appelle par leur
+          prénom.
+        </UnderTitle>
         <LogoutTouch onPress={() => navigation.navigate('ScreenPiece')}>
           <Logout source={require('../../../assets/BackArrow.png')} />
         </LogoutTouch>
@@ -31,6 +40,7 @@ const Header = styled.Image`
 `;
 const Page = styled.SafeAreaView`
   height: 100%;
+  background-color: ${props => props.theme.PRIMARY_BACKGROUND_COLOR};
 `;
 const Logout = styled.Image`
   position: absolute;

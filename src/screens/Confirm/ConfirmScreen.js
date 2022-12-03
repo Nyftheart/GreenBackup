@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import {SafeAreaView, Text, TouchableOpacity} from 'react-native';
 import LoginInput from '../../components/LoginRegisterComponant/LoginInput';
 import LoginButton from '../../components/LoginRegisterComponant/LoginButton';
-import { useNavigation } from "@react-navigation/native";
+import {useNavigation} from '@react-navigation/native';
 
 const Confirm = () => {
   const navigation = useNavigation();
@@ -24,8 +24,8 @@ const Confirm = () => {
         setValue={setCode}
         secureText={false}
       />
-      <LoginButton text={"Finish"} onPress={onFinish}/>
-      <LoginButton text={"Back"} onPress={onBack}/>
+      <LoginButton text={'Finish'} onPress={onFinish} />
+      <LoginButton text={'Back'} onPress={onBack} />
     </SafeAreaView>
   );
 };

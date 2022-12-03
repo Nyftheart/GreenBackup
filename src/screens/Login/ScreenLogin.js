@@ -1,13 +1,14 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
-import React, { useEffect, useState } from "react";
-import { Appearance, Image, SafeAreaView, StyleSheet, Text, TextInput, View } from "react-native";
-import NavigationButton from '../../components/button/Loginbutton';
+import React, {useEffect, useState} from 'react';
+import {Appearance} from 'react-native';
 import LoginForm from '../../components/loginForm/Form';
 import verifyIfUserIsConnected from '../../utils/verfiyIfUserIsConnected';
 import {useFocusEffect} from '@react-navigation/native';
 import styled from 'styled-components/native';
-import darkMode from "../../../darkMode";
+import SwitchThemeButton from '../../components/switchTheme';
+import SwitchLangButton from '../../components/switchLang';
+import {useTranslation} from 'react-i18next';
 
 // on cree la page et on ne fait de rien de complexe
 // on verifie juste que sa fonctionne
@@ -26,6 +27,8 @@ const Login = ({navigation}) => {
     username: '',
     password: '',
   });
+
+  const {t, i18n} = useTranslation();
 
   // se lance au focus d'une page
   useFocusEffect(() => {
@@ -65,9 +68,10 @@ const Login = ({navigation}) => {
   const [theme, setTheme] = useState(Appearance.getColorScheme());
   Appearance.addChangeListener(scheme => {});
   return (
-
-    <Screen style={theme == 'light' ? styles.page : darkMode.page}>
-      <Title>Welcome in Green Memory !</Title>
+    <Screen>
+      <Title>{t('title')}</Title>
+      <SwitchThemeButton />
+      <SwitchLangButton />
       {/* creation du formulaire (comme dans todolist)*/}
       <LoginForm
         setInputs={setInputs}
@@ -75,7 +79,7 @@ const Login = ({navigation}) => {
         inputs={inputs}
       />
       <AcountButton>
-        <Acount>Pas de compte ? </Acount>
+        <Acount>{t('SignIn')} </Acount>
         <Arow source={require('../../../assets/arrowWhite.png')} />
       </AcountButton>
     </Screen>
@@ -86,6 +90,7 @@ export default Login;
 
 const Screen = styled.SafeAreaView`
   height: 100%;
+  background-color: ${props => props.theme.PRIMARY_BACKGROUND_COLOR};
 `;
 const Title = styled.Text`
   width: 353px;
@@ -129,8 +134,3 @@ const AcountButton = styled.TouchableOpacity`
   flex-direction: row;
   flex-wrap: wrap;
 `;
-const styles = StyleSheet.create({
-  page: {
-    backgroundColor: '#b6e0ce',
-  },
-});
